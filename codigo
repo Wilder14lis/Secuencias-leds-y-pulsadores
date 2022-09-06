@@ -1,0 +1,90 @@
+from machine import Pin as pin
+from utime import sleep,sleep_ms
+
+let1 = pin(23,pin.OUT)
+let2 = pin(21,pin.OUT)
+let3 = pin(19,pin.OUT)
+let4 = pin(17,pin.OUT)
+let5 = pin(0,pin,OUT)
+let6 = pin(15,pin,OUT)
+let7 = pin(2,pin,OUT)
+let8 = pin(4,pin,OUT)
+
+btn1 = pin(27,pin.IN)
+btn2 = pin(14,pin.IN)
+btn3 = pin(12,pin.IN)
+btn2 = pin(13,pin.IN)
+pausa = 0.2
+
+def derecha():
+    let1.value(1)
+    sleep(pausa)
+    let1.value(0)
+    sleep(pausa)
+    let2.value(1)
+    sleep(pausa)
+    let2.value(0)
+    sleep(pausa)
+    let3.value(1)
+    sleep(pausa)
+    let3.value(0)
+    sleep(pausa)
+    let4.value(1)
+    sleep(pausa)
+    let4.value(0)
+    sleep(pausa)
+    let5.value(1)
+    sleep(pausa)
+    let5.value(0)
+    sleep(pausa)
+    let6.value(1)
+    sleep(pausa)
+    let6.value(0)
+    sleep(pausa)
+    let7.value(1)
+    sleep(pausa)
+    let7.value(0)
+    sleep(pausa)
+def izquierda():
+    let7.value(1)
+    sleep(pausa)
+    let7.value(0)
+    sleep(pausa)
+    let6.value(1)
+    sleep(pausa)
+    let6.value(0)
+    sleep(pausa)
+    let5.value(1)
+    sleep(pausa)
+    let5.value(0)
+    sleep(pausa)
+    let4.value(1)
+    sleep(pausa)
+    let4.value(0)
+    sleep(pausa)
+    let3.value(1)
+    sleep(pausa)
+    let3.value(0)
+    sleep(pausa)
+    let2.value(1)
+    sleep(pausa)
+    let2.value(0)
+    sleep(pausa)
+    let1.value(1)
+    sleep(pausa)
+    let1.value(0)
+    sleep(pausa)
+       
+   While (true)
+ direc=[izquierda(),derecha()]
+
+botones={btn1.value():direc,btn2.value():direc,btn3.value():direc,btn4.value():direc}
+
+sistema=botones.items() #crea lista de tuplas a partir de la colección anterior
+ 
+for boton,direccion in sistema:
+    if boton==1:
+        print(direccion[True])
+        for boton1,direccion1 in sistema:
+            if boton1==1:
+                print(direccion[not True])
